@@ -1,0 +1,702 @@
+/* =========================================================
+   1. ПЕРЕМЕННЫЕ И БАЗОВЫЕ СТИЛИ
+   ========================================================= */
+:root {
+  --ink:    #101b33;
+  --muted:  #68748b;
+  --blue:   #245bfa;
+  --line:   #e5eaf3;
+  --bg:     #f8faff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: auto;
+}
+
+
+/* =========================================================
+   2. HEADER / NAV
+   ========================================================= */
+.nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.9px;
+  white-space: nowrap;
+}
+
+.mark {
+  display: inline-block;
+  width: 24px;
+  height: 15px;
+  margin-right: 9px;
+  background: linear-gradient(115deg, #2460ff 0 44%, transparent 44% 55%, #8bb0ff 55%);
+  transform: skew(-18deg);
+}
+
+.links {
+  display: flex;
+  gap: 25px;
+  font-size: 13px;
+  color: #34415c;
+}
+
+.links a:hover {
+  color: var(--blue);
+}
+
+
+/* =========================================================
+   3. КНОПКИ
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #1749da;
+  transform: translateY(-1px);
+}
+
+.btn.outline {
+  background: #fff;
+  color: var(--ink);
+  border-color: #d4dceb;
+}
+
+.btn.outline:hover {
+  background: #f3f6ff;
+}
+
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+.hero {
+  background:
+    radial-gradient(ellipse at 82% 25%, #e9f0ff, transparent 44%),
+    linear-gradient(#fff, #f8faff);
+  border-top: 1px solid #f0f2f7;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  min-height: 590px;
+  padding: 60px 0 80px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: 50px;
+  background: #ecf2ff;
+  color: #2d57a7;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #245bfa;
+}
+
+h1 {
+  margin: 23px 0;
+  font-size: clamp(42px, 5.2vw, 67px);
+  line-height: 1.09;
+  letter-spacing: -2.8px;
+}
+
+h1 span {
+  color: var(--blue);
+}
+
+.lead {
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.micro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 42px;
+  color: #65728b;
+  font-size: 12px;
+}
+
+.micro b {
+  margin-right: 7px;
+  color: var(--blue);
+}
+
+/* --- Hero: визуальная часть --- */
+.visual {
+  position: relative;
+  min-width: 0;
+}
+
+.screen {
+  overflow: hidden;
+  border: 10px solid #1b2539;
+  border-bottom-width: 18px;
+  border-radius: 19px;
+  background: #0e1524;
+  box-shadow: 0 35px 70px #17346a25;
+  transform: rotate(-2deg);
+}
+
+.windowbar {
+  height: 31px;
+  padding: 9px 15px;
+  background: #1c273b;
+  color: #9aa9c0;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.code {
+  min-height: 295px;
+  padding: 27px 22px;
+  font: 14px/2 'SFMono-Regular', Consolas, monospace;
+  color: #c5d2e9;
+  white-space: pre-wrap;
+}
+
+.pink { color: #e88cbb; }
+.cyan { color: #65d4dc; }
+.gold { color: #f3d27c; }
+
+.floating {
+  position: absolute;
+  right: -16px;
+  bottom: -35px;
+  width: 225px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 45px #132f5a1c;
+}
+
+.floating strong { font-size: 14px; }
+
+.floating p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.chips {
+  position: absolute;
+  top: -35px;
+  right: 20px;
+  display: flex;
+  gap: 9px;
+}
+
+.chip {
+  padding: 13px 12px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 30px #17346a14;
+  color: #245bfa;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   5. ОБЩИЕ СЕКЦИИ
+   ========================================================= */
+.section {
+  padding: 92px 0;
+}
+
+.section.alt {
+  background: var(--bg);
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.section h2 {
+  margin: 14px 0;
+  font-size: clamp(30px, 3.4vw, 43px);
+  letter-spacing: -1.4px;
+}
+
+.section-intro {
+  max-width: 660px;
+  margin-bottom: 38px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   6. КАРТОЧКИ / ПЛИТКИ / ШАГИ
+   ========================================================= */
+.tile,
+.plan,
+.step,
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+}
+
+.tile { padding: 29px; }
+
+.symbol {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  margin-bottom: 22px;
+  border-radius: 12px;
+  background: #eaf0ff;
+  color: var(--blue);
+  font-size: 23px;
+}
+
+.tile h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.tile p,
+.step p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+
+/* --- Сетки --- */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.step { padding: 25px; }
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: #eaf0ff;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.step h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   7. КУРСЫ
+   ========================================================= */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.courses .tile {
+  min-height: 235px;
+}
+
+.tech {
+  color: var(--blue);
+  font-size: 24px;
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   8. ТАРИФЫ
+   ========================================================= */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  align-items: stretch;
+}
+
+.plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+}
+
+.plan.featured {
+  border: 2px solid var(--blue);
+  box-shadow: 0 16px 35px #245bfa12;
+}
+
+.popular {
+  position: absolute;
+  top: -16px;
+  left: 16px;
+  right: 16px;
+  padding: 7px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  text-align: center;
+  font-size: 11px;
+}
+
+.plan h3 {
+  min-height: 43px;
+  font-size: 17px;
+}
+
+.price {
+  font-size: 29px;
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+.plan p {
+  min-height: 80px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.plan ul {
+  flex: 1;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.plan li {
+  display: flex;
+  gap: 8px;
+  padding: 7px 0;
+}
+
+.plan li::before {
+  content: '✓';
+  font-weight: 900;
+  color: var(--blue);
+}
+
+.plan .btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 13px 9px;
+}
+
+
+/* =========================================================
+   9. PROOF
+   ========================================================= */
+.proof {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 40px;
+  border: 1px solid #e3eaff;
+  border-radius: 20px;
+  background: #f1f5ff;
+}
+
+.proof p {
+  max-width: 600px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   10. FAQ
+   ========================================================= */
+.faq {
+  max-width: 850px;
+}
+
+.faq-item {
+  margin: 12px 0;
+  padding: 0 22px;
+}
+
+summary {
+  padding: 22px 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+details p {
+  margin: 0;
+  padding-bottom: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. CTA
+   ========================================================= */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 58px;
+  border-radius: 24px;
+  background: linear-gradient(120deg, #10244e, #1f56e5);
+  color: #fff;
+}
+
+.cta h2 {
+  margin: 0 0 12px;
+}
+
+.cta p {
+  max-width: 550px;
+  color: #d5e1ff;
+}
+
+.cta .btn {
+  background: #fff;
+  color: #153c9c;
+  border-color: #fff;
+}
+
+
+/* =========================================================
+   12. FOOTER
+   ========================================================= */
+footer {
+  padding: 55px 0 35px;
+  background: #101a30;
+  color: #c2cce0;
+}
+
+footer .brand {
+  color: #fff;
+}
+
+footer p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #9aa9c1;
+}
+
+.footergrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footerlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+}
+
+.fine {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #2b3850;
+  font-size: 12px;
+  color: #98a7c0;
+}
+
+
+/* =========================================================
+   13. MODAL
+   ========================================================= */
+.modal {
+  width: min(450px, calc(100% - 24px));
+  padding: 30px;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 20px 100px #07132960;
+}
+
+.modal::backdrop {
+  background: #0a1636a8;
+}
+
+.modal h3 {
+  margin-top: 0;
+  font-size: 23px;
+}
+
+.modal p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  margin: 7px 0 12px;
+  padding: 14px;
+  border: 1px solid #dce3ef;
+  border-radius: 9px;
+  font: inherit;
+}
+
+.modal .btn {
+  width: 100%;
+}
+
+.close {
+  float: right;
+  border: 0;
+  background: transparent;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 12px !important;
+}
+
+
+/* =========================================================
+   14. АДАПТИВНОСТЬ
+   ========================================================= */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .links { display: none; }
+
+  .hero-grid { gap: 35px; }
+
+  .plans { grid-template-columns: repeat(2, 1fr); }
+  .grid3,
+  .courses { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .container { width: min(100% - 30px, 1160px); }
+
+  .nav { height: 70px; }
+  .nav > .btn { padding: 11px; font-size: 12px; }
+  .brand { font-size: 19px; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+    min-height: 0;
+    padding: 40px 0 85px;
+  }
+
+  h1 { font-size: 43px; letter-spacing: -1.8px; }
+  .lead { font-size: 16px; }
+
+  .visual { margin: 20px 10px; }
+  .code { min-height: 225px; padding: 15px; font-size: 11px; }
+  .floating { right: -12px; bottom: -43px; width: 190px; padding: 13px; }
+  .chips { top: -22px; }
+  .chip { padding: 10px; font-size: 11px; }
+
+  .section { padding: 65px 0; }
+  .section h2 { font-size: 32px; }
+  .micro { gap: 12px; }
+
+  .grid3,
+  .courses,
+  .steps,
+  .plans { grid-template-columns: 1fr; }
+
+  .plan h3,
+  .plan p { min-height: 0; }
+
+  .proof,
+  .cta { display: block; padding: 27px; }
+  .cta .btn { margin-top: 18px; }
+}
